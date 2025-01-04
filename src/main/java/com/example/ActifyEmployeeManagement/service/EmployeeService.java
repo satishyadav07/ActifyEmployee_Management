@@ -7,10 +7,18 @@ import java.util.Optional;
 public interface EmployeeService {
 
 
+//
+//    EmployeeModel saveEmployee(EmployeeModel employeeModel);
+//
+//    Optional<EmployeeModel> getEmployeeById(long id);
+//
 
-    EmployeeModel saveEmployee(EmployeeModel employeeModel);
 
-    Optional<EmployeeModel> getEmployeeById(long id);
+
+
+        EmployeeModel addEmployee(String name, String email, Integer departmentId, Integer roleId);
+
+        EmployeeModel getEmployeeById(long id);
 
 
 

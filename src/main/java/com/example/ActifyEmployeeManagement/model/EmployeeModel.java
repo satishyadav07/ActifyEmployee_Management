@@ -7,8 +7,10 @@ import jakarta.persistence.*;
 public class EmployeeModel {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    @Column(unique = true)
     private String email;
 
     public int getId() {
