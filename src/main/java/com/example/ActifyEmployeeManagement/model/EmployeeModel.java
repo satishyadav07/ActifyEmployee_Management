@@ -70,6 +70,15 @@ public class EmployeeModel {
         this.email = email;
     }
 
+
+//    public EmployeeModel(int id, String name, String email, Department department, EmpRole empRole) {
+//        this.id = id;
+//        this.name = name;
+//        this.email = email;
+//        this.department = department;
+//        this.empRole = empRole;
+//    }
+
     public EmployeeModel(){
         super();
     }

@@ -17,16 +17,6 @@ public class EmpController {
     @Autowired
     private EmployeeService employeeService;
 
-//
-//    @PostMapping("/employee")
-//    public EmployeeModel addEmployee(@RequestBody EmployeeModel employeeModel){
-//        return employeeService.saveEmployee(employeeModel);
-//    }
-//
-//    @GetMapping("/employee/{id}")
-//    public Optional<EmployeeModel> getEmployeeByID(@PathVariable("id") Long id){
-//        return employeeService.getEmployeeById(id);
-//    }
 
     @PostMapping("/employee")
     public ResponseEntity<String> addEmployee(@RequestBody Map<String, Object> payload) {
@@ -39,14 +29,13 @@ public class EmpController {
         return ResponseEntity.status(HttpStatus.CREATED).body("Employee Added");
     }
 
-    // GET /employees/{id}
+
     @GetMapping("/employee/{id}")
     public ResponseEntity<?> getEmployeeById(@PathVariable("id") Integer id) {
         Optional<EmployeeModel> employee = employeeService.getEmployeeById(id);
         if(employee.isPresent()) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(employee);
+            return ResponseEntity.status(HttpStatus.OK).body(employee);
         }
-
         else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Employee Not Found");
         }
