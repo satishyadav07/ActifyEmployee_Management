@@ -44,11 +44,11 @@ public class EmpController {
     public ResponseEntity<?> getEmployeeById(@PathVariable("id") Integer id) {
         Optional<EmployeeModel> employee = employeeService.getEmployeeById(id);
         if(employee.isPresent()) {
-            return ResponseEntity.status(HttpStatus.OK).body(employee);
+            return ResponseEntity.status(HttpStatus.CREATED).body(employee);
         }
 
         else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("employee is not present in the database");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Employee Not Found");
         }
 
     }
