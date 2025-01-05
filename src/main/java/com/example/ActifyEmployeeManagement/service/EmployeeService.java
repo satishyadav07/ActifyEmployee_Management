@@ -18,7 +18,7 @@ public interface EmployeeService {
 
         EmployeeModel addEmployee(String name, String email, Integer departmentId, Integer roleId);
 
-        EmployeeModel getEmployeeById(long id);
+        Optional<EmployeeModel> getEmployeeById(long id);
 
 
 

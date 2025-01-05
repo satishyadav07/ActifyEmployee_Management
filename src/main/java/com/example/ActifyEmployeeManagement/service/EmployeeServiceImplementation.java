@@ -64,9 +64,9 @@ public class EmployeeServiceImplementation implements EmployeeService {
     }
 
     @Override
-    public EmployeeModel getEmployeeById(long id) {
-        return employeeRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Employee Not Found"));
+    public Optional<EmployeeModel> getEmployeeById(long id) {
+        return employeeRepository.findById(id);
+
     }
 
 
