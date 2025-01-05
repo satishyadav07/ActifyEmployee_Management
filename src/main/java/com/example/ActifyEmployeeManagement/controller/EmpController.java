@@ -2,6 +2,7 @@ package com.example.ActifyEmployeeManagement.controller;
 
 import com.example.ActifyEmployeeManagement.model.EmployeeModel;
 import com.example.ActifyEmployeeManagement.service.EmployeeService;
+import com.example.ActifyEmployeeManagement.util.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,9 @@ public class EmpController {
     @Autowired
     private EmployeeService employeeService;
 
+    @Autowired
+    private JwtUtil jwtUtil;
+
 //
 //    @PostMapping("/employee")
 //    public EmployeeModel addEmployee(@RequestBody EmployeeModel employeeModel){
@@ -30,6 +34,9 @@ public class EmpController {
 
     @PostMapping("/employee")
     public ResponseEntity<String> addEmployee(@RequestBody Map<String, Object> payload) {
+        String str =jwtUtil.generateToken("dinesh");
+        System.out.println("str");
+
         String name = (String) payload.get("name");
         String email = (String) payload.get("email");
         Integer departmentId = (Integer) payload.get("departmentId");
@@ -42,6 +49,8 @@ public class EmpController {
     // GET /employees/{id}
     @GetMapping("/employee/{id}")
     public ResponseEntity<?> getEmployeeById(@PathVariable("id") Integer id) {
+        String str =jwtUtil.generateToken(id.toString());
+        System.out.println("str");
         Optional<EmployeeModel> employee = employeeService.getEmployeeById(id);
         if(employee.isPresent()) {
             return ResponseEntity.status(HttpStatus.CREATED).body(employee);

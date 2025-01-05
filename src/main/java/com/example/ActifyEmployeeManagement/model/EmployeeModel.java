@@ -1,6 +1,6 @@
 package com.example.ActifyEmployeeManagement.model;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "EmployeeDetails")
